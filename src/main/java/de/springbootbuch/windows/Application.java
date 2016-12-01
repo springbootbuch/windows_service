@@ -13,12 +13,10 @@ public class Application {
             SpringApplication.run(Application.class, args);
         } else {
             try (JMXConnector connector = AdminClient.connect(Integer.parseInt(args[1]))) {
-                try {
-                    new AdminClient(connector.getMBeanServerConnection(), AdminClient.DEFAULT_OBJECT_NAME).stop();
-                } catch (InstanceNotFoundException ex) {
-                    throw new IllegalStateException("Spring application lifecycle JMX bean not "
-                            + "found, could not stop application gracefully", ex);
-                }
+                new AdminClient(connector.getMBeanServerConnection(), AdminClient.DEFAULT_OBJECT_NAME).stop();
+            } catch (InstanceNotFoundException ex) {
+                throw new IllegalStateException("Spring application lifecycle JMX bean not "
+                        + "found, could not stop application gracefully", ex);
             }
         }
     }
