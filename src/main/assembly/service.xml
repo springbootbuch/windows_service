@@ -1,16 +1,26 @@
 <service>
     <id>@project.artifactId@</id>
     <name>@project.name@</name>
-    <description>Provides your awesome app as a windows service</description>
+    <description>
+        Your app as a windows service
+    </description>
     <workingdirectory>%BASE%\</workingdirectory>
     <logpath>%BASE%\logs</logpath>
     <logmode>rotate</logmode>
 
     <executable>java</executable>
-    <startargument>-Dspring.application.admin.enabled=true</startargument>
-    <startargument>-Dcom.sun.management.jmxremote.port=@jmx.port@</startargument>
-    <startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>
-    <startargument>-Dcom.sun.management.jmxremote.ssl=false </startargument>
+    <startargument>
+        -Dspring.application.admin.enabled=true
+    </startargument>
+    <startargument>
+        -Dcom.sun.management.jmxremote.port=@jmx.port@
+    </startargument>
+    <startargument>
+        -Dcom.sun.management.jmxremote.authenticate=false
+    </startargument>
+    <startargument>
+        -Dcom.sun.management.jmxremote.ssl=false
+    </startargument>
     <startargument>-cp</startargument>
     <startargument>lib/*</startargument>
     <startargument>@start-class@</startargument>
