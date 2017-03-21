@@ -31,6 +31,11 @@
 
     <files>
         <file>
+            <source>${project.build.directory}/${project.build.finalName}.jar.original</source>
+            <outputDirectory>lib</outputDirectory>
+            <destName>${project.build.finalName}.jar</destName>
+        </file>
+        <file>
             <source>${project.build.directory}/dist/application.properties</source>
             <outputDirectory/>
             <destName>application.properties</destName>
@@ -50,6 +55,5 @@
             <outputDirectory/>
             <destName>${project.artifactId}.exe.config</destName>
         </file>
-
     </files>
 </assembly>
