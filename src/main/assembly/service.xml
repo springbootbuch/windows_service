@@ -1,35 +1,27 @@
 <service>
-    <id>@project.artifactId@</id>
-    <name>@project.name@</name>
-    <description>
-        Your app as a windows service
-    </description>
-    <workingdirectory>%BASE%\</workingdirectory>
-    <logpath>%BASE%\logs</logpath>
-    <logmode>rotate</logmode>
+  <id>@project.artifactId@</id>
+  <name>@project.name@</name>
+  <description>
+      Your app as a windows service
+  </description>
+  <workingdirectory>%BASE%\</workingdirectory>
+  <logpath>%BASE%\logs</logpath>
+  <logmode>rotate</logmode>
 
-    <executable>java</executable>
-    <startargument>
-        -Dspring.application.admin.enabled=true
-    </startargument>
-    <startargument>
-        -Dcom.sun.management.jmxremote.port=@jmx.port@
-    </startargument>
-    <startargument>
-        -Dcom.sun.management.jmxremote.authenticate=false
-    </startargument>
-    <startargument>
-        -Dcom.sun.management.jmxremote.ssl=false
-    </startargument>
-    <startargument>-cp</startargument>
-    <startargument>lib/*</startargument>
-    <startargument>@start-class@</startargument>
-    <startargument>startService</startargument>
+  <executable>java</executable>
+  <startargument>-Dspring.application.admin.enabled=true</startargument>
+  <startargument>-Dcom.sun.management.jmxremote.port=@jmx.port@</startargument>
+  <startargument>-Dcom.sun.management.jmxremote.authenticate=false</startargument>
+  <startargument>-Dcom.sun.management.jmxremote.ssl=false</startargument>
+  <startargument>-cp</startargument>
+  <startargument>lib/*</startargument>
+  <startargument>@start-class@</startargument>
+  <startargument>startService</startargument>
 
-    <stopexecutable>java</stopexecutable>
-    <stopargument>-cp</stopargument>
-    <stopargument>lib/*</stopargument>
-    <stopargument>@start-class@</stopargument>
-    <stopargument>stopService</stopargument>
-    <stopargument>@jmx.port@</stopargument>
+  <stopexecutable>java</stopexecutable>
+  <stopargument>-cp</stopargument>
+  <stopargument>lib/*</stopargument>
+  <stopargument>@start-class@</stopargument>
+  <stopargument>stopService</stopargument>
+  <stopargument>@jmx.port@</stopargument>
 </service>
